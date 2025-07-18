@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+th:replace="normal/base::layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <section class="dashboard d-flex justify-content-center align-items-center vh-100">
+         <div class="content-wrapper smart">
+             <i class="fa-solid fa-bars" onclick="togglesidebar()"></i>
+        </div>
+       
+  <form th:action="@{/user/process-contact}" method="post" th:object="${contact}" class="contact-card momt" enctype="multipart/form-data">
+  <h3 class="text-center mb-4">Add Contact</h3>
+
+  <div class="mb-3">
+    <label for="fullName" class="form-label">Full Name</label>
+    <input type="text" required="required" class="form-control" id="fullName" placeholder="Enter Full Name" th:field="*{fullName}">
+  </div>
+
+  <div class="mb-3">
+    <label for="phone" class="form-label">Phone</label>
+    <input type="tel" required="required" class="form-control" id="phone" placeholder="Enter Phone Number" th:field="*{phone}">
+  </div>
+
+  <div class="mb-3">
+    <label for="work" class="form-label">Work</label>
+    <input type="text" required="required" class="form-control" id="work" placeholder="Enter Work" th:field="*{work}">
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input type="email" required="required" class="form-control" id="email" placeholder="Enter Email" th:field="*{email}">
+  </div>
+
+  <div class="mb-3">
+    <label for="profileImage" class="form-label">Profile Image</label>
+    <input class="form-control" type="file" id="profileImage" name="profileImage">
+  </div>
+
+  <button type="submit" class="btn btn-light w-100 btn-contact">Add Contact</button>
+</form>
+
+
+  </section>
+   
+</body>
+</html>

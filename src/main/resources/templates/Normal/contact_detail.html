@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+th:replace="normal/base::layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <section class="dashboard-contact d-flex justify-content-center align-items-center vh-100">
+        <div class="content-wrapper smart">
+            <i class="fa-solid fa-bars" onclick="togglesidebar()"></i>
+        </div>
+        <div class="col-md-6">
+            <div class="profile-card text-center">
+
+                <!-- Profile photo -->
+                <img class="profile-photo" th:src="@{'/img/' + ${contact.image}}" alt="Profile Photo">
+
+                <!-- User info -->
+                <h1 th:text="${contact.fullName}">User Name</h1>
+                <div class="profile-details mt-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Email:</label>
+                        </div>
+                        <div class="col-8">
+                            <p th:text="${contact.email}">user@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Phone:</label>
+                        </div>
+                        <div class="col-8">
+                            <p th:text="${contact.phone}">+91-XXXXXXXXXX</p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-4">
+                            <label>Work:</label>
+                        </div>
+                        <div class="col-8">
+                            <p th:text="${contact.work}">About text here...</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Optional buttons -->
+                <!-- Optional buttons -->
+<div class="mt-3 d-flex justify-content-center gap-2">
+    <form method="post" th:action="@{'/user/update-contact/' + ${contact.cId}}">
+        <button type="submit" class="btn btn-primary btn-sm">
+            Edit Profile
+        </button>
+    </form>
+    <a href="#" th:onclick="|deleteContact(${contact.cId})|" class="btn btn-danger btn-sm an">Delete</a>
+</div>
+
+
+            </div>
+        </div>
+    </section>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ContactGenie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <section class="banner">
+    
+        <div class="forgot-card ">
+            
+          <div th:if="${message}">
+    <div class="alert text-center" role="alert">
+        <span th:text="${message}"></span>
+    </div>
+</div>
+
+
+            <h3 class="text-center">Your Registered Email</h3>
+            <form method="post" action="" th:action="@{/send-otp}" >
+                <div class="formgroup">
+                    <input name="email" type="email" required="required" class="emm" placeholder="Enter your email">
+                </div>
+                <div class="bnn">
+                    <button class="btn-otp">Send OTP</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    </section>
+</body>
+</html>

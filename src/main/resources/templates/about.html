@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - ContactGenie</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    
+</head>
+<body>
+    <section class="banner">
+        <div class="about-header">
+            <h1>About ContactGenie</h1>
+            <p>
+                ContactGenie is your smart companion for managing contacts in a more intuitive and powerful way. 
+                From keeping your connections organized to setting timely reminders and ensuring top-notch security — 
+                ContactGenie empowers you to build stronger, more meaningful relationships effortlessly.
+            </p>
+        </div>
+
+        <div class="features-row">
+            <div class="feature-card">
+                <i class="fa-solid fa-address-book fa-3x"></i>
+                <h4>Manage Contacts</h4>
+                <p>Organize all your contacts with ease and enjoy quick, hassle-free access anytime.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-upload fa-3x"></i>
+                <h4>Import & Export</h4>
+                <p>Effortlessly import from or export to multiple sources without losing a single detail.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-bell fa-3x"></i>
+                <h4>Reminders</h4>
+                <p>Stay on top of important follow-ups and never miss a connection again.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fa-solid fa-shield-halved fa-3x"></i>
+                <h4>Secure & Private</h4>
+                <p>Your data stays safe with our advanced, end-to-end encryption and privacy-first design.</p>
+            </div>
+        </div>
+
+        <div class="cta-btn">
+           <a href="#" th:href="@{/login}">
+             <button class="btn btn-primary btn-lg mt-3">Join Now</button>
+           </a>
+        </div>
+    </section>
+</body>
+</html>

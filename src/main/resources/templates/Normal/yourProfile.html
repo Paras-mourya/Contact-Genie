@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="normal/base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+
+    <!-- Bootstrap (if not included already) -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}">
+    <!-- FontAwesome (for icons) -->
+    <link rel="stylesheet" th:href="@{/css/all.min.css}">
+</head> 
+<body>
+<section class="dashboard d-flex justify-content-center align-items-center vh-100">
+      <div class="content-wrapper smart">
+             <i class="fa-solid fa-bars" onclick="togglesidebar()"></i>
+        </div>
+    <div class="col-md-6">
+        <div class="profile-cardd text-center">
+            <!-- Profile photo -->
+            <img class="profile-photoo" th:src="@{'/img/' + ${user.imageUrl}}" alt="Profile Photo">
+
+            <!-- User info -->
+            <h1 th:text="${user.name}">UserName</h1>
+            <div class="profile-detailss mt-4 text-start">
+                <div class="row mb-2">
+                    <div class="col-4"><label>Id:</label></div>
+                    <div class="col-8"><p th:text="${user.id}">1</p></div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4"><label>Email:</label></div>
+                    <div class="col-8"><p th:text="${user.email}">user@example.com</p></div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4"><label>Role:</label></div>
+                    <div class="col-8"><p th:text="${user.role}">User</p></div>
+                </div>
+                <div class="row mb-2">
+                    <div class="col-4"><label>Account:</label></div>
+                    <div class="col-8"><p th:text="${user.enabled} ? 'Active' : 'Inactive'">Active</p></div>
+                </div>
+            </div>
+
+            <!-- Optional buttons -->
+            <div class="mt-3">
+                <a href="#" class="btn btn-edit"><i class="fa fa-pen"></i> Edit</a>
+            <a th:href="@{'/deleteUser/' + ${user.id}}" class="btn btn-delete">
+    <i class="fa fa-trash"></i> Delete
+</a>
+
+
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

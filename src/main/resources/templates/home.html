@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactGenie - Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+   
+</head>
+<body>
+    <section class="bannerr">
+        <div class="home">
+            <h1>ContactGenie</h1>
+            <h5>Effortlessly manage your contacts and amplify your connections.</h5>
+           <a href="#" th:href="@{/login}">
+             <button class="btn bg-light text-primary btn-lg btn-customm " >Get Started</button>
+           </a>
+           <a href="#" th:href="@{/about}">
+             <button class="btn btn-outline-light btn-lg btn-customm">Learn More</button>
+           </a>
+        </div>
+    </section>
+</body>
+</html>
