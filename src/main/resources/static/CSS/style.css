@@ -234,6 +234,7 @@
   margin-bottom: 20px;
 }
 
+
 .banto {
   background: rgb(218, 211, 230);
   width: 100%;
@@ -685,13 +686,13 @@ h2 {
 
 .profile-details label {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 18px;
   color: #333;
 }
 
 .profile-details p {
   margin: 0;
-  font-size: 1rem;
+  font-size: 1.1rem;
   color: #555;
 }
 .btnContact a {
@@ -1031,28 +1032,50 @@ h1 {
             background: linear-gradient(90deg, rgb(165, 173, 208), rgb(113, 88, 139));
             color: #fff;
         }
-          @media (max-width: 768px) {
-    .abhi {
-      display: inline-block !important;
-      font-size: 18px;
-      color: #fff;
-      position: absolute;
-      top: -320px;
-      left: -216px;
-      z-index: 1000;
-      margin: 0; /* Remove weird spacing */
-    }
-
-    .container,
-    .dashboardd-card,
-    .man,
-    .moti,
-    .lodu,
-    .sapoli {
-      display: none !important;
-    }
+       @media (max-width: 576px) {
+  .man {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
-        .google-btn {
+
+  .dashboardd-card {
+    display:none;
+  }
+
+  .dashboardd-card i {
+    font-size: 1.5rem !important;
+    margin-top: 10px !important;
+  }
+
+  .dashboardd-card h4 {
+    font-size: 16px !important;
+    margin-bottom: -2px !important;
+  }
+
+  .dashboardd-card p {
+    font-size: 12px;
+    margin: 0 5px;
+    line-height: 1.2;
+  }
+
+  .btn-cuustom {
+    font-size: 12px;
+    padding: 4px 12px;
+  }
+
+  .abhi {
+    margin-left: 0 !important;
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+    z-index: 1000;
+    font-size: 20px;
+  }
+}
+
+   .google-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -1083,4 +1106,31 @@ h1 {
 .mom{
   text-decoration:none;
   color:black!important;
+}
+.card-body{
+  
+  backdrop-filter: saturate(120%) blur(10px);
+  -webkit-backdrop-filter: saturate(120%) blur(10px);
+}
+.dada{
+  
+  margin-bottom:400px!important;
+  margin-left:320px;
+  
+}
+@media(max-width:767px){
+  .dada{
+    margin-top:100px;
+    margin-left:-20px;
+    width:94%!important;
+    height:400px!important;
+  }
+}
+.vaa{
+ background: linear-gradient(
+    135deg,
+    rgba(235, 160, 94, 1),
+    rgba(109, 26, 138, 1)
+  ) !important;
+  border:none!important;
 }

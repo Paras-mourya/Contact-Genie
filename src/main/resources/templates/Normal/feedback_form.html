@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="http://www.thymeleaf.org"
+th:replace="normal/base::layout(~{::section})" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     <section class=" dashboard d-flex align-items-center justify-content-center bg-light">
+       <div class="content-wrapper smart">
+            <i class="fa-solid fa-bars" onclick="togglesidebar()"></i>
+        </div>
+      <div class="container dada">
+        <div class=" row justify-content-center">
+          <div class="col-lg-8 col-md-10">
+            <div class="card shadow-lg border-0 rounded-4">
+              <div class="card-header bg-primary text-white text-center rounded-top-4 py-4">
+                <h2 class="mb-1">
+                  <i class="fa-solid fa-comments me-2"></i>Share Your Feedback
+                </h2>
+                <p class="mb-0 fs-6">We value your thoughts to improve ContactGenie</p>
+              </div>
+              <div class="card-body p-5">
+                <form th:action="@{/user/submit-feedback}" method="post">
+                  <div class="mb-4">
+                    <label for="subject" class="form-label fw-semibold">Subject</label>
+                    <input
+                      type="text"
+                      name="subject"
+                      id="subject"
+                      class="form-control form-control-lg rounded-3"
+                      placeholder="Feedback subject"
+                      required
+                    />
+                  </div>
+
+                  <div class="mb-4">
+                    <label for="message" class="form-label fw-semibold">Message</label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      rows="6"
+                      class="form-control rounded-3"
+                      placeholder="Share your suggestions, thoughts, or issues..."
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-success px-5 py-2 rounded-pill vaa">
+                      <i class="fa-solid fa-paper-plane me-2"></i>Submit Feedback
+                    </button>
+                  </div>
+                </form>
+              </div>
+              <div class="card-footer bg-white text-center py-3">
+                <small class="text-muted">
+                  Thank you for helping us make ContactGenie better for everyone!
+                </small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+</body>
+</html>
