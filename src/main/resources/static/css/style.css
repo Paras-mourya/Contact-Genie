@@ -199,6 +199,38 @@
   border-radius: 20px;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 }
+@media screen and (max-width: 576px) {
+  .my-card {
+    width: 90% !important;
+    padding: 1.5rem 1rem !important;
+    margin: 30px auto !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    margin-top:-120px!important;
+  }
+
+  .signup-title h2 {
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+  }
+
+  .form-control {
+    font-size: 0.95rem;
+    padding: 10px;
+  }
+
+  label {
+    font-size: 0.9rem;
+  }
+
+  .btn.colur {
+    font-size: 1rem;
+    padding: 10px 20px;
+    width: 100%;
+    margin-top: 15px;
+  }
+}
+
 .form-control {
   margin-top: 10px;
   width: 320px;
@@ -295,6 +327,48 @@
   height: 500px;
   color: white;
 }
+@media screen and (max-width: 576px) {
+  .glass-card {
+    padding: 1.5rem;
+    width: 90%;
+    height: auto;
+    max-height: 90vh;
+  }
+
+  .mobile {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+    width:280px;
+  }
+
+  label.phone {
+    font-size: 0.9rem;
+  }
+
+  .google-img {
+    width: 28px;
+    height: 28px;
+    margin-right: 8px;
+    margin-top: 0;
+  }
+
+  .btn-custom,
+  .btn-outline {
+    font-size: 0.9rem;
+    padding: 0.6rem 1rem;
+    margin-right:400px;
+  }
+
+  .login-title {
+    font-size: 1.5rem;
+  }
+
+  .register p {
+    font-size: 0.9rem;
+  }
+ 
+}
+
 .google-img {
  width:35px;
  height:35px;
@@ -391,6 +465,40 @@
 
   transition: 0.3s;
 }
+@media screen and (max-width: 576px) {
+  .forgot-card {
+    width: 90%;
+    padding: 20px 15px;
+    height: auto;
+    margin: 50px auto;
+  }
+
+  .emm {
+    width: 98%!important;
+    height: 45px;
+    font-size: 1rem;
+  }
+
+  .btn-otp {
+    width: 100%;
+    height: 42px;
+    font-size: 1rem;
+    margin-top: 20px;
+  }
+
+  h3.text-center {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  
+
+  .bnn {
+    display: flex;
+    justify-content: center;
+  }
+}
+
 .emm {
   border-radius: 10px;
   border: none;
@@ -728,11 +836,13 @@ h2 {
   ) !important;
   color: white !important;
 }
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .profile-card {
     width: 90%;
     max-width: 90%;
+    height:500px!important;
     padding: 1.5rem;
+    margin-bottom:140px;
   }
 
   .profile-photo {
@@ -746,7 +856,7 @@ h2 {
   }
 
   .profile-details {
-    margin-left: 10px;
+    margin-left: -6px;
   }
 
   .profile-details label {
@@ -852,10 +962,11 @@ h2 {
 }
 
 /* Media query for mobile devices */
-@media (max-width: 768px) {
+@media (max-width: 576px) {
   .profile-cardd {
     width: 90%;
     padding: 30px 20px;
+    margin-bottom:80px;
   }
 
   .profile-photoo {
@@ -865,11 +976,12 @@ h2 {
 
   .profile-detailss label {
     font-size: 16px;
+    margin-left:-28px;
   }
 
   .profile-detailss p {
     font-size: 1rem;
-    margin-left: 1px;
+    margin-left: -10px;
   }
 
   .btn {
@@ -1118,12 +1230,12 @@ h1 {
   margin-left:320px;
   
 }
-@media(max-width:767px){
+@media(max-width:576px){
   .dada{
-    margin-top:100px;
+    margin-top:-20px;
     margin-left:-20px;
-    width:94%!important;
-    height:400px!important;
+    width:90%!important;
+    height:300px!important;
   }
 }
 .vaa{

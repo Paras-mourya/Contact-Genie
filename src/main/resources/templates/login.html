@@ -38,18 +38,18 @@
             <!-- Thymeleaf form -->
             <form th:action="@{/dologin}" method="post">
                 <div class="mb-3">
-                    <label for="username" class="form-label">Username</label>
-                    <input type="text" id="username" name="username" class="form-control" placeholder="Enter username" required/>
+                    <label for="username" class="form-label phone">Username</label>
+                    <input type="text" id="username" name="username" class="form-control mobile" placeholder="Enter username" required/>
                 </div>
                 <div class="mb-3">
-                    <label for="password" class="form-label">Password</label>
-                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter password" required/>
+                    <label for="password" class="form-label phone">Password</label>
+                    <input type="password" id="password" name="password" class="form-control mobile" placeholder="Enter password" required/>
                 </div>
                 <div class="forgot">
                    <a href="#" th:href="@{/forgot}"> Forgot Password ?</a>
                 </div>
                 <div class="d-grid">
-                    <button type="submit" class="btn btn-custom">Login</button>
+                    <button type="submit" class="btn btn-custom ">Login</button>
 
                 </div>
            <a href="/oauth2/authorization/google" class="w-100 mt-2 d-flex align-items-center justify-content-center btn btn-outline mummy">
