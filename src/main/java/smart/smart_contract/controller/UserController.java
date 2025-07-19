@@ -36,13 +36,19 @@ public class UserController {
     @Autowired
     private ContactRepository contactRepository;
 
-    @ModelAttribute
-    public void AddCommondata( Model model,Principal principal){
-        String username=principal.getName();
-        User user=userRepository.findByEmail(username);
-        System.out.println(user);
-        model.addAttribute("user",user);
+   @ModelAttribute
+public void AddCommondata(Model model, Principal principal){
+    if (principal != null) {
+        String username = principal.getName();
+        System.out.println("✅ Principal is not null: " + username);
+        User user = userRepository.findByEmail(username);
+        System.out.println("✅ User fetched: " + user.getName());
+        model.addAttribute("user", user);
+    } else {
+        System.out.println("❌ Principal is null!");
     }
+}
+
     
     @GetMapping("/index")
     public String dashboard(Model model, Principal principal) {
