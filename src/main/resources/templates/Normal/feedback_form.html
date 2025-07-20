@@ -24,24 +24,24 @@ th:replace="Normal/base::layout(~{::section})" >
               <div class="card-body p-5">
                 <form th:action="@{/user/submit-feedback}" method="post">
                   <div class="mb-4">
-                    <label for="subject" class="form-label fw-semibold">Subject</label>
+                    <label for="subject" class="form-label fw-semibold private">Subject</label>
                     <input
                       type="text"
                       name="subject"
                       id="subject"
-                      class="form-control form-control-lg rounded-3"
+                      class="form-control form-control-lg rounded-3 public "
                       placeholder="Feedback subject"
                       required
                     />
                   </div>
 
                   <div class="mb-4">
-                    <label for="message" class="form-label fw-semibold">Message</label>
+                    <label for="message" class="form-label fw-semibold private">Message</label>
                     <textarea
                       name="message"
                       id="message"
                       rows="6"
-                      class="form-control rounded-3"
+                      class="form-control rounded-3 public"
                       placeholder="Share your suggestions, thoughts, or issues..."
                       required
                     ></textarea>
@@ -55,7 +55,7 @@ th:replace="Normal/base::layout(~{::section})" >
                 </form>
               </div>
               <div class="card-footer bg-white text-center py-3">
-                <small class="text-muted">
+                <small class="text-muted ">
                   Thank you for helping us make ContactGenie better for everyone!
                 </small>
               </div>

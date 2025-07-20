@@ -186,9 +186,9 @@
   margin-top: 45px;
 }
 .my-card {
-  margin-top: 40px;
+  margin-top: -160px;
 
- 
+
   padding: 2rem;
   width: 100%;
   max-width: 400px;
@@ -212,6 +212,9 @@
   .signup-title h2 {
     font-size: 1.6rem;
     margin-bottom: 20px;
+  }
+  .insta{
+    width:260px!important;
   }
 
   .form-control {
@@ -327,18 +330,47 @@
   height: 500px;
   color: white;
 }
+.update-card{
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: saturate(120%) blur(80px);
+  -webkit-backdrop-filter: saturate(80%) blur(80px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  height: 500px;
+  color: white;
+}
+@media (max-width: 576px) {
+  .update-card {
+    max-width: 70%;
+    height: 560px!important;
+    padding: 1.5rem;
+    margin-top:-80px!important;
+  }
+  .seva{
+    width:240px;
+  }
+  .tanu{
+    margin-left:-20px!important;
+  }
+  
+}
 @media screen and (max-width: 576px) {
   .glass-card {
     padding: 1.5rem;
-    width: 90%;
+    width: 80%;
     height: auto;
-    max-height: 90vh;
+    max-height: 60vh;
+    position:absolute;
   }
 
   .mobile {
     font-size: 0.9rem;
     padding: 0.5rem 0.75rem;
-    width:280px;
+    width:260px;
   }
 
   label.phone {
@@ -356,7 +388,7 @@
   .btn-outline {
     font-size: 0.9rem;
     padding: 0.6rem 1rem;
-    margin-right:400px;
+    margin-left:-16px!important;
   }
 
   .login-title {
@@ -413,9 +445,10 @@
 }
 @media (max-width: 768px) {
   .contact-card {
-    max-width: 95%;
-    width: 95%;
+    max-width: 70%;
+    width: 70%;
     padding: 1.2rem;
+    height:560px!important;
   }
 
   .contact-card h3 {
@@ -430,11 +463,14 @@
   .contact-card .form-control {
     font-size: 0.9rem;
     padding: 0.45rem 0.65rem;
+    width:240px!important;
   }
 
   .btn-contact {
     font-size: 0.9rem;
     padding: 0.5rem 1rem;
+    margin-top:-10px;
+    width:40px!important;
   }
 }
 
@@ -545,7 +581,11 @@
   margin-top: 40px;
 }
 .btn-contact {
-  background: linear-gradient(120deg, #e95ddbff, #00c6ff) !important;
+  background: linear-gradient(
+    135deg,
+    rgba(228, 175, 115, 1),
+    rgba(147, 58, 182, 1)
+  ) !important;
   color: white;
   font-weight: bold;
   border: 1px solid white;
@@ -583,7 +623,8 @@ h2 {
   margin-left: 20%;
 }
 .dashboard {
-  background: url("/img/vaish.jpg");
+  background: url("/img/rajj.jpg");
+  background-size:cover;
   position: fixed;
   width: 100%;
   height: 100vh;
@@ -593,7 +634,8 @@ h2 {
   width: 100%;
   height: 100vh;
   position: fixed;
-  background: url("/img/vaish.jpg");
+  background: url("/img/rajj.jpg");
+  background-size:cover;
   z-index: -1;
 }
 
@@ -1228,14 +1270,23 @@ h1 {
   
   margin-bottom:400px!important;
   margin-left:320px;
-  
 }
 @media(max-width:576px){
   .dada{
     margin-top:-20px;
     margin-left:-20px;
-    width:90%!important;
-    height:300px!important;
+    width:80%!important;
+    height:240px!important;
+  }
+  .private{
+    margin-top:-40px;
+  }
+  .public{
+    width:240px;
+    
+  }
+  .card-footer{
+    margin-bottom:-40px!important;
   }
 }
 .vaa{
@@ -1245,4 +1296,7 @@ h1 {
     rgba(109, 26, 138, 1)
   ) !important;
   border:none!important;
+}
+.tanu{
+  margin-top:0px;
 }
