@@ -15,7 +15,8 @@ th:replace="Normal/base::layout(~{::section})" >
             <div class="profile-card text-center">
 
                 <!-- Profile photo -->
-                <img class="profile-photo" th:src="@{'/img/' + ${contact.image}}" alt="Profile Photo">
+                <img class="profile-photo" th:src="@{'/images/' + ${contact.image}}" alt="Profile Photo">
+
 
                 <!-- User info -->
                 <h1 th:text="${contact.fullName}">User Name</h1>

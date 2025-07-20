@@ -18,7 +18,8 @@
     <div class="col-md-6">
         <div class="profile-cardd text-center">
             <!-- Profile photo -->
-            <img class="profile-photoo" th:src="@{'/img/' + ${user.imageUrl}}" alt="Profile Photo">
+        <img class="profile-photoo" th:src="@{'/img/' + ${user.imageUrl}}" alt="Profile Photo">
+
 
             <!-- User info -->
             <h1 th:text="${user.name}">UserName</h1>

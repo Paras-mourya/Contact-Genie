@@ -28,7 +28,8 @@ th:replace="Normal/base::layout(~{::section})" >
     <tr th:each="c : ${contacts}">
         <th th:text="${'SCM' + c.cId}" scope="row">1</th>
         <td data-label="Name">
-  <img class="profile-pic" th:src="@{'/img/' + ${c.image}}" alt="Profile Photo">
+ <img class="profile-pic" th:src="@{'/images/' + ${c.image}}" alt="Profile Photo">
+
   <span th:text="${c.fullName}"></span>
 </td>
 <td data-label="Email">

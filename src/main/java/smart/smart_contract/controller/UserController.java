@@ -9,7 +9,6 @@ import java.security.Principal;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -70,36 +69,37 @@ public String processContact(@ModelAttribute Contact contact,
                              Principal principal, HttpSession session){
    try {
         String username = principal.getName();
-    User user = userRepository.findByEmail(username);
+        User user = userRepository.findByEmail(username);
+        contact.setUser(user);
 
-    contact.setUser(user);
+        // Handle file
+        if (file.isEmpty()) {
+            System.out.println("file is empty");
+            contact.setImage("default.png");
+        } else {
+            System.out.println("Uploaded file name: " + file.getOriginalFilename());
 
-    // Handle file
-    if (file.isEmpty()){
-        System.out.println("file is empty");
-        contact.setImage("default.png");
-    }
-    
-    else{
-        System.out.println("Uploaded file name: " + file.getOriginalFilename());
-        // You can add logic to save file
-        contact.setImage(file.getOriginalFilename());
-       File saveFile= new ClassPathResource("static/img").getFile();
-       Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
-       Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);
-       System.out.println("image uploaded");
-    }
+            // ✅ uploads folder outside jar
+            String uploadDir = new File("uploads").getAbsolutePath();
+            new File(uploadDir).mkdirs(); // 👈 auto-create folder
 
-    user.getContacts().add(contact);
-    this.userRepository.save(user);
-    System.out.println(contact);
-   
+            Path path = Paths.get(uploadDir + File.separator + file.getOriginalFilename());
+            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+
+            contact.setImage(file.getOriginalFilename());
+            System.out.println("image uploaded to uploads/");
+        }
+
+        user.getContacts().add(contact);
+        this.userRepository.save(user);
+        System.out.println(contact);
 
    } catch (Exception e) {
-    System.out.println(e.getMessage());
+       System.out.println(e.getMessage());
    }
     return "redirect:/user/showContacts/0";
-}   
+}
+
 
 // ✅ Add this GET mapping to handle accidental GET requests
 @GetMapping("/process-contact")
@@ -167,44 +167,39 @@ public String updateForm(@PathVariable("cId") Integer cId ,Model m){
 }
 
 @PostMapping("/process-update")
-public String updateHandler(@ModelAttribute Contact contact,@RequestParam("profileImage") MultipartFile file,Principal principal){
-
+public String updateHandler(@ModelAttribute Contact contact,
+                            @RequestParam("profileImage") MultipartFile file,
+                            Principal principal) {
     try {
+        Contact oldcontactDetail = this.contactRepository.findById(contact.getcId()).get();
 
-        // old contact details
-       Contact oldcontactDetail= this.contactRepository.findById(contact.getcId()).get();
+        if (!file.isEmpty()) {
+            // ✅ Delete old image
+            String uploadDir = new File("uploads").getAbsolutePath();
+            File oldFile = new File(uploadDir, oldcontactDetail.getImage());
+            if (oldFile.exists()) oldFile.delete();
 
-        if(!file.isEmpty()){
-
-            // delete old image
-
-            File deleteFile= new ClassPathResource("static/img").getFile();
-            File file1=new File(deleteFile,oldcontactDetail.getImage());
-            file1.delete();
-
-            // update new image
-           File saveFile= new ClassPathResource("static/img").getFile();
-       Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
-       Files.copy(file.getInputStream(),path,StandardCopyOption.REPLACE_EXISTING);
-       contact.setImage(file.getOriginalFilename());
-        }
-        else{
+            // ✅ Save new image
+            new File(uploadDir).mkdirs();
+            Path path = Paths.get(uploadDir + File.separator + file.getOriginalFilename());
+            Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+            contact.setImage(file.getOriginalFilename());
+        } else {
             contact.setImage(oldcontactDetail.getImage());
         }
 
-       String userName=principal.getName();
-        
-       User user=this.userRepository.findByEmail(userName);
-       contact.setUser(user);
+        String userName = principal.getName();
+        User user = this.userRepository.findByEmail(userName);
+        contact.setUser(user);
 
-       this.contactRepository.save(contact);
-        
+        this.contactRepository.save(contact);
     } catch (Exception e) {
         e.printStackTrace();
     }
 
-    return "redirect:/user/"+contact.getcId()+"/contact-detail";
+    return "redirect:/user/" + contact.getcId() + "/contact-detail";
 }
+
 @GetMapping("/yourProfile")
 public String yourProfile(Model m, Principal principal){
     String userName = principal.getName();
